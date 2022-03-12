@@ -19,10 +19,10 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "lint": "eslint --ext .tsx,.ts src",
     "prettier:fix": "prettier --write",
     "prettier:check": "prettier --check .",
@@ -49,7 +49,8 @@
   "devDependencies": {
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "react-app-rewired": "^2.2.1"
   },
   "lint-staged": {
     "src/*.{ts,tsx}": [
