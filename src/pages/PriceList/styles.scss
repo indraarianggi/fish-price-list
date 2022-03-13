@@ -21,4 +21,8 @@
   @include helper.screen('medium') {
     grid-template-columns: 1fr;
   }
+
+  .empty {
+    text-align: center;
+  }
 }

@@ -6,6 +6,7 @@ import useAllFishPrice from '@/hooks/useFishPriceList'
 import { IFishPrice } from '@/types'
 import Filter from '@/components/Filter'
 import PriceItem from '@/components/PriceItem'
+import PriceItemSkeleton from '@/components/PriceItem/PriceItemSkeleton'
 import { filterOptions, LIMIT_FETCH_DATA } from '@/constants'
 
 import './styles.scss'
@@ -39,7 +40,7 @@ const PriceList = () => {
       <div className="price-list">
         <InfiniteScroll
           swr={swr}
-          loadingIndicator="Memuat data..."
+          loadingIndicator={<PriceItemSkeleton />}
           isReachingEnd={(swr) =>
             swr.data?.[0]?.length === 0 ||
             swr.data?.[swr.data?.length - 1]?.length < LIMIT_FETCH_DATA
@@ -50,7 +51,7 @@ const PriceList = () => {
                 <PriceItem key={index} item={item} />
               ))
             ) : (
-              <p>Tidak ada data</p>
+              <p className="empty">Data tidak ditemukan</p>
             )
           }}
         </InfiniteScroll>

@@ -1,6 +1,13 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 
-import { IFishPrice, IGetAllFishParams } from '@/types'
+import {
+  IAddFishPriceResponse,
+  IFishPrice,
+  IFishPriceFormInput,
+  IGetAllFishParams,
+  IOptionArea,
+  IOptionSize,
+} from '@/types'
 import { ENDPOINTS } from './endpoints'
 
 const axiosInstance = axios.create({
@@ -22,5 +29,27 @@ export const getAllFishPrice = async (params: IGetAllFishParams) => {
     method: 'GET',
     url: ENDPOINTS.allFishPrice,
     params,
+  })
+}
+
+export const getOptionArea = async () => {
+  return await ApiClient<Array<IOptionArea>>({
+    method: 'GET',
+    url: ENDPOINTS.optionArea,
+  })
+}
+
+export const getOptionSize = async () => {
+  return await ApiClient<Array<IOptionSize>>({
+    method: 'GET',
+    url: ENDPOINTS.optionSize,
+  })
+}
+
+export const postFishPrice = async (payload: IFishPriceFormInput) => {
+  return await ApiClient<IAddFishPriceResponse>({
+    method: 'POST',
+    url: ENDPOINTS.addFishPrice,
+    data: [payload],
   })
 }
