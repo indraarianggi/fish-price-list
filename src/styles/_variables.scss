@@ -1,0 +1,21 @@
+$font-primary: 'Poppins', sans-serif;
+
+$color-primary: #00d084;
+$color-secondary: #fd5503;
+$color-black: #1f2937;
+$color-gray: #9ca3af;
+$color-gray2: #f3f4f6;
+
+$max-width: 768px;
+
+$breakpoints: (
+  'small': (
+    min-width: 767px,
+  ),
+  'medium': (
+    min-width: 992px,
+  ),
+  'large': (
+    min-width: 1200px,
+  ),
+) !default;

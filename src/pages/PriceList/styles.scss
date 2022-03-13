@@ -1,0 +1,16 @@
+@use '@/styles/variables' as var;
+@use '@/styles/helpers' as helper;
+
+.price-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @include helper.screen('small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include helper.screen('medium') {
+    grid-template-columns: 1fr;
+  }
+}

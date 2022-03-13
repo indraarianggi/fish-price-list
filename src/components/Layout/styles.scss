@@ -1,0 +1,109 @@
+@use '@/styles/variables' as var;
+@use '@/styles/helpers' as helper;
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  background-color: var.$color-primary;
+
+  .header-content {
+    padding: 0.75rem 1rem;
+
+    @include helper.screen('medium') {
+      width: var.$max-width;
+      margin: 0 auto;
+    }
+  }
+
+  img {
+    height: 2rem;
+  }
+}
+
+#app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: hidden;
+
+  @include helper.screen('medium') {
+    flex-direction: row;
+    width: var.$max-width;
+    padding: 1rem 0 0;
+    margin: 0 auto;
+  }
+}
+
+nav {
+  position: relative;
+  display: flex;
+  background-color: white;
+  box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.15);
+
+  @include helper.screen('medium') {
+    flex-direction: column;
+    border-right-color: var.$color-gray2;
+    border-right-width: 2px;
+    border-right-style: solid;
+    box-shadow: none;
+    padding: 0 1rem 0 0;
+  }
+
+  .nav-label {
+    font-size: 1rem;
+    display: none;
+
+    @include helper.screen('medium') {
+      display: block;
+      margin: 0.75rem 0 0;
+    }
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var.$color-gray;
+    font-size: 0.75rem;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+
+    @include helper.screen('medium') {
+      flex: 0;
+      flex-direction: row;
+      font-size: 1rem;
+    }
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+
+      @include helper.screen('medium') {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .nav-active {
+    color: var.$color-primary;
+    font-weight: bold;
+  }
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+  padding: 0.75rem 1rem;
+
+  @include helper.screen('medium') {
+    padding: 0.75rem 2rem;
+  }
+}

@@ -1,0 +1,56 @@
+@use '@/styles/variables' as var;
+
+%secondary-txt {
+  color: var.$color-gray;
+  font-size: 0.875rem;
+}
+
+.price-item {
+  background-color: white;
+  border-radius: 0.5rem;
+  border-color: var.$color-gray;
+  border-width: 1px;
+  border-style: solid;
+  padding: 1rem;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: inherit;
+
+    .commodity {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .price {
+      color: var.$color-secondary;
+      font-weight: bold;
+    }
+  }
+
+  .size {
+    @extend %secondary-txt;
+  }
+
+  footer {
+    @extend %secondary-txt;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    & > * {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+}

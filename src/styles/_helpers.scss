@@ -1,0 +1,12 @@
+@use './variables' as var;
+
+@mixin screen($size) {
+  @if map-has-key(var.$breakpoints, $size) {
+    @media only screen and #{inspect(map-get(var.$breakpoints, $size))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. "
+        + "Available breakpoints are: #{map-keys(var.$breakpoints)}.";
+  }
+}
