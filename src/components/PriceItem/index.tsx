@@ -20,7 +20,7 @@ const PriceItem: React.FC<IPriceItemProps> = ({ item }) => {
         </span>
       </header>
       <span className="size">
-        <b>Size:</b> {item.size ?? '0'}
+        <b>Ukuran:</b> {item.size ?? '0'}
       </span>
       <footer>
         <div className="location">

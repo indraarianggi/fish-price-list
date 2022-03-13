@@ -2,6 +2,11 @@ type WithNull<T> = {
   [P in keyof T]: T[P] | null
 }
 
+export interface IFilterOption {
+  text: string
+  value: string
+}
+
 export interface IGetAllFishParams {
   limit?: number
   offset?: number

@@ -1,10 +1,18 @@
 @use '@/styles/variables' as var;
 @use '@/styles/helpers' as helper;
 
+.price-list-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
 .price-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 1rem;
+  overflow: auto;
 
   @include helper.screen('small') {
     grid-template-columns: repeat(2, 1fr);
