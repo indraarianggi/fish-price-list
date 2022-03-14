@@ -6,11 +6,11 @@ import { v4 as uuid } from 'uuid'
 
 import useOptionArea from '@/hooks/useOptionArea'
 import useOptionSize from '@/hooks/useOptionSize'
+import useAddFishPrice from '@/hooks/useAddFishPrice'
+import { IFishPriceFormInput } from '@/types'
 import { capitalize } from '@/utils/formatString'
 
 import './styles.scss'
-import { IFishPriceFormInput } from '@/types'
-import { postFishPrice } from '@/services/api'
 
 interface IFormOption {
   label: string
@@ -84,7 +84,9 @@ const Add = () => {
     [areaOptions, sizeOptions],
   )
 
-  const handleSubmit = useCallback(async (data: any) => {
+  const { addFishPrice } = useAddFishPrice()
+
+  const handleSubmit = useCallback((data: any) => {
     const payload: IFishPriceFormInput = {
       uuid: uuid(),
       komoditas: data['Komoditas'],
@@ -95,9 +97,10 @@ const Add = () => {
       tgl_parsed: data['Tanggal'],
     }
 
-    await postFishPrice(payload)
-
-    history.push('/')
+    addFishPrice(payload, {
+      onSuccess: () => history.push('/'),
+      onError: () => console.log('Gagal menambahkan data'),
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

@@ -17,7 +17,12 @@ export default function useAllFishPrice(searchObj: ISearch) {
       let search = {}
       for (const key in searchObj) {
         if (searchObj[key]) {
-          search = { ...search, [key]: searchObj[key] }
+          let searchValue = searchObj[key]
+          if (key === 'area_kota' || key === 'area_provinsi') {
+            searchValue = searchObj[key].toUpperCase()
+          }
+
+          search = { ...search, [key]: searchValue }
         }
       }
 
